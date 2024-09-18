@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter ZIP Code</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Add the logo image here -->
+        <img src="{{ url_for('static', filename='lowes-logo.png') }}" alt="Lowe's Logo" class="logo">
+        
+        <h1>Enter your ZIP code to find nearby Lowe's stores</h1>
+        <form action="/" method="POST">
+            <div class="search-container">
+                <input type="text" name="zipcode" placeholder="Enter ZIP Code" required>
+                <button type="submit" class="search-btn">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

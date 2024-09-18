@@ -1,0 +1,235 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Container */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #001f3f; /* Dark blue background */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    max-height: 90vh; /* Limit height to allow scrolling inside */
+    overflow-y: auto;
+    padding: 20px 0;
+    width: 100%;
+}
+
+/* Search Bar Container */
+.search-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 20px; /* Add bottom margin to create space below */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Input Field Styling */
+.search-container input[type="text"] {
+    width: 100%;
+    padding: 15px 20px;
+    padding-right: 60px; /* Add space for the icon */
+    border-radius: 30px;
+    border: 2px solid #005bb5;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Field Hover and Focus */
+.search-container input[type="text"]:focus {
+    border-color: #0074d9;
+    background-color: white;
+}
+
+/* Search Button (Icon) */
+.search-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #0074d9;
+    border: none;
+    border-radius: 50%;
+    padding: 12px;
+    cursor: pointer;
+    color: white;
+    outline: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Button Hover Effect */
+.search-btn:hover {
+    background-color: #005bb5;
+}
+
+/* Store List */
+.store-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    max-height: 80vh; /* Set a limit on height */
+    overflow-y: auto; /* Allow scrolling within the store list */
+    padding-right: 15px;
+}
+
+/* Store Box Styling */
+.store-box {
+    background-color: white; /* White background */
+    color: #001f3f; /* Dark blue text */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 350px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Store Box Hover Effect */
+.store-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.store-box a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.store-box strong {
+    font-size: 18px;
+}
+
+/* Scrollbar Styling */
+.store-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.store-list::-webkit-scrollbar-thumb {
+    background-color: #0074d9;
+    border-radius: 10px;
+}
+
+/* Chat Container */
+.chat-container {
+    width: 400px;
+    height: 600px;
+    background-color: #012a5a;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Chat Header */
+.chat-header {
+    background-color: #004080;
+    padding: 20px;
+    color: white;
+    border-bottom: 1px solid #0059b3;
+    text-align: center;
+}
+
+.chat-header h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+/* Chat Messages Area */
+.chat-messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #002b59;
+}
+
+/* Message Styles */
+.user-message,
+.bot-message {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 15px;
+    max-width: 80%;
+    font-size: 14px;
+}
+
+.user-message {
+    background-color: #0074d9;
+    color: white;
+    align-self: flex-end;
+    text-align: right;
+}
+
+.bot-message {
+    background-color: #005bb5;
+    color: white;
+    align-self: flex-start;
+}
+
+/* Chat Input Area */
+.chat-input-container {
+    display: flex;
+    padding: 10px;
+    background-color: #001f3f;
+    border-top: 1px solid #004080;
+}
+
+#message {
+    flex-grow: 1;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+#send-button {
+    background-color: #0074d9;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#send-button:hover {
+    background-color: #005bb5;
+}
+
+#message:focus {
+    outline: none;
+}
+
+/* Scrollbar Styling */
+.chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background-color: #0074d9;
+    border-radius: 10px;
+}
+
+/* Logo Styling */
+.logo {
+    width: 150px; /* Adjust the width to make the logo smaller */
+    margin-bottom: 20px;
+}

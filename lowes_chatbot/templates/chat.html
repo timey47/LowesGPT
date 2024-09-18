@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lowe'sGPT</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Lowe's Chatbot</h1>
+        <h2>Stores near {{ zipcode }}</h2>
+
+        <div class="store-list">
+            {% for store in stores %}
+            <a href="{{ url_for('store_chat', store_number=store['store_no'], store_name=store['store_name'], store_location=store['street_address']) }}">
+                <div class="store-box">
+                    <strong>{{ store['store_name'] }}</strong><br>
+                    {{ store['street_address'] }}, {{ store['city'] }}, {{ store['zip_state'] }}<br>
+                    ({{ store['distance'] }} miles away)
+                </div>
+            </a>
+            
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

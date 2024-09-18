@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Chatbot UI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>Chat with Lowe'sGPT</h2>
+            <p>Store Name: <span id="store-name">{{ store_name }}</span></p>
+            <p>Store Location: <span id="store-location">{{ store_location }}</span></p>
+            <p>Store Number: <span id="store-number">{{ store_number }}</span></p>
+        </div>
+
+        <div class="chat-messages" id="chat-content">
+            <!-- Chat content will be dynamically added here -->
+        </div>
+
+        <div class="chat-input-container">
+            <input type="text" id="message" autocomplete="off" placeholder="Type your message here...">
+            <button type="submit" id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Grab the store information from the HTML DOM
+            const storeNumber = $('#store-number').text();
+
+            $('#send-button').click(function() {
+                let message = $('#message').val();
+                if (message.trim() === '') {
+                    return;
+                }
+
+                // Append user's message to the chat content
+                $('#chat-content').append('<div class="user-message"><strong>You:</strong> ' + message + '</div>');
+                $('#message').val(''); // Clear the message input field
+
+                // Send the message along with the store number via AJAX to the backend
+                $.ajax({
+                    url: '/send_message',
+                    method: 'POST',
+                    data: { message: message, store_number: storeNumber },
+                    success: function(response) {
+                        if (response.reply) {
+                            $('#chat-content').append('<div class="bot-message"><strong>Assistant:</strong> ' + response.reply + '</div>');
+                        } else {
+                            $('#chat-content').append('<div class="bot-message error"><strong>Error:</strong> ' + response.error + '</div>');
+                        }
+                        // Scroll to the bottom of the chat
+                        $('.chat-messages').scrollTop($('.chat-messages')[0].scrollHeight);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
